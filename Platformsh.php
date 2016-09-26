@@ -133,7 +133,8 @@ class Platformsh
             $this->log(sprintf('Copied directory: %s', $dir));
         }
 
-        if (!file_exists('app/etc/env.php')) {
+        $var = $this->getVariables();
+        if (!file_exists('app/etc/env.php') || $var['MAGENTO_INSTALL'] == 1) {
             $this->installMagento();
         } else {
             $this->updateMagento();
@@ -215,7 +216,7 @@ class Platformsh
     /**
      * Run Magento installation
      */
-    protected function installMagento()
+    public function installMagento()
     {
         $this->log("File env.php does not exist. Installing Magento.");
 
