@@ -420,6 +420,7 @@ class Platformsh
         }
 
         if ($status != 0) {
+            $this->log('Output:'.var_export($output, true));
             throw new \RuntimeException("Command $command returned code $status", $status);
         }
 
