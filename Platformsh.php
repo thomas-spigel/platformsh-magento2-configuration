@@ -223,7 +223,7 @@ class Platformsh
         $urlSecure = $this->urls['secure'][''];
 
         $command =
-            "cd bin/; /usr/bin/php ./magento setup:install \
+            "cd bin/; pwd -P; /usr/bin/php -f ./magento -- setup:install \
             --session-save=db \
             --cleanup-database \
             --currency=$this->defaultCurrency \
