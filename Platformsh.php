@@ -61,7 +61,7 @@ class Platformsh
                 continue;
             }
 
-            if(isset($variables['MAGENTO_UPSTREAM']) && $val['upstream'] != $variables['upstream']) {
+            if(isset($variables['MAGENTO_UPSTREAM']) && $val['upstream'] != $variables['MAGENTO_UPSTREAM']) {
                 continue;
             }
 
