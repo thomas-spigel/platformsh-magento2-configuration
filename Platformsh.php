@@ -55,8 +55,13 @@ class Platformsh
 
         $routes = $this->getRoutes();
 
+        $variables = $this->getVariables();
         foreach($routes as $key => $val) {
             if ($val["type"] !== "upstream") {
+                continue;
+            }
+
+            if(isset($variables['MAGENTO_UPSTREAM']) && $val['upstream'] != $variables['upstream']) {
                 continue;
             }
 
