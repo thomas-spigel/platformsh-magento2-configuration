@@ -225,8 +225,8 @@ class Platformsh
     {
         $this->log("File env.php does not exist. Installing Magento.");
 
-        $urlUnsecure = $this->urls['unsecure'][''];
-        $urlSecure = $this->urls['secure'][''];
+        $urlUnsecure = current($this->urls['unsecure']);
+        $urlSecure = current($this->urls['secure']);
 
         $command =
             "cd bin/; pwd -P; /usr/bin/php -f ./magento -- setup:install \
